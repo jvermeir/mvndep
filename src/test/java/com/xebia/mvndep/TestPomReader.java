@@ -15,4 +15,9 @@ public class TestPomReader {
         Assert.assertEquals(3, dependencies.size());
     }
 
+//    @Test
+//    public void error() {
+//        Assert.fail();
+//    }
+
 }
