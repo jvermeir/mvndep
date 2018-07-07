@@ -2,7 +2,6 @@
 
 DATE=$(date +"%Y%m%d%M%S")
 
-mvn versions:use-latest-versions
 
 DIFFERENCES=$(diff pom.xml pom.xml.versionsBackup)
 if [ -z "$DIFFERENCES" ]; then
@@ -13,8 +12,9 @@ fi
 BRANCH_NAME=feature/mvnUpgrade$DATE
 echo "creating branch $BRANCH_NAME"
 
-git checkout -b $DATE
+git checkout -b $BRANCH_NAME
 
+mvn versions:use-latest-versions
 mvn -q clean install
 
 if [ $? -eq 0 ]; then
