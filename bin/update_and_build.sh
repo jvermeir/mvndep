@@ -10,7 +10,7 @@ then
     exit -1
 fi
 
-DATE=$(date +"%Y%m%d%M%S")
+DATE=$(date +"%Y%m%d%H%M%S")
 
 BRANCH_NAME=feature/mvnUpgrade$DATE
 echo "creating branch $BRANCH_NAME"
