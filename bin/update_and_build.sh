@@ -13,7 +13,8 @@ echo "creating branch $BRANCH_NAME"
 
 git checkout -b $BRANCH_NAME
 
-mvn versions:update-properties versions:use-latest-versions
+echo "upgrade"
+mvn -q versions:update-properties versions:use-latest-versions
 
 DIFFERENCES=$(diff pom.xml pom.xml.versionsBackup)
 if [ -z "$DIFFERENCES" ]; then
@@ -21,6 +22,7 @@ if [ -z "$DIFFERENCES" ]; then
     exit 0
 fi
 
+echo "test"
 mvn -q clean install
 
 if [ $? -eq 0 ]; then
