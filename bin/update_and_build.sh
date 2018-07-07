@@ -17,7 +17,7 @@ git checkout -b $DATE
 
 mvn -q clean install
 
-if [ $res -eq 0 ]; then
+if [ $? -eq 0 ]; then
     echo "ok"
     git add pom.xml
     git commit -m "Auto upgrade"
