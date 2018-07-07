@@ -13,7 +13,7 @@ echo "creating branch $BRANCH_NAME"
 
 git checkout -b $BRANCH_NAME
 
-mvn versions:use-latest-versions
+mvn versions:update-properties versions:use-latest-versions
 
 DIFFERENCES=$(diff pom.xml pom.xml.versionsBackup)
 if [ -z "$DIFFERENCES" ]; then
