@@ -29,6 +29,9 @@ if [ $? -eq 0 ]; then
     echo "ok"
     git add pom.xml
     git commit -m "Auto upgrade"
+    
+    echo "changes:"
+    diff pom.xml pom.xml.versionsBackup
 else
     echo "oh dear. Upgrade failed"
 fi
