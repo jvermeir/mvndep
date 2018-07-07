@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+#
+# create a new branch, update dependencies and run build.
+# branch is pushed if build succeeds
+
 if [[ -n $(git status -s) ]]
 then
     echo "Uncommitted changes are not allowed"
@@ -29,7 +33,8 @@ if [ $? -eq 0 ]; then
     echo "ok"
     git add pom.xml
     git commit -m "Auto upgrade"
-    
+    git push
+
     echo "changes:"
     diff pom.xml pom.xml.versionsBackup
 else
