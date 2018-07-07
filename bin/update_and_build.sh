@@ -33,7 +33,7 @@ if [ $? -eq 0 ]; then
     echo "ok"
     git add pom.xml
     git commit -m "Auto upgrade"
-    git push
+    git push --set-upstream origin $BRANCH_NAME
 
     echo "changes:"
     diff pom.xml pom.xml.versionsBackup
