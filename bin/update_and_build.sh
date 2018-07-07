@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+if [[ -n $(git status -s) ]]
+then
+    echo "Uncommitted changes are not allowed"
+    exit -1
+fi
+
 DATE=$(date +"%Y%m%d%M%S")
 
 BRANCH_NAME=feature/mvnUpgrade$DATE
