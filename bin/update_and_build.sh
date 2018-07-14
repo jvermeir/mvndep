@@ -39,4 +39,7 @@ if [ $? -eq 0 ]; then
     diff pom.xml pom.xml.versionsBackup
 else
     echo "oh dear. Upgrade failed"
+    exit 1
 fi
+
+exit 0
